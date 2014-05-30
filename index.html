@@ -6,8 +6,8 @@
 
 		<title>Securing Your Drupal Site: advice for site builders and coders</title>
 
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
+		<meta name="description" content="Drupalcon Austin 2014 Presentation on Security">
+		<meta name="author" content="Stéphane Corlosquet, Greg Knaddison">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -53,6 +53,19 @@
 					</p>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						## Lots of things to cover
+
+						- Drupal Configuration
+						- Code
+						- Server environment
+						- Server config
+						- Personal practices
+
+						*cover them all a little*
+					</script>
+				</section>
 
 				<section data-markdown>
 					<script type="text/template">
@@ -62,6 +75,8 @@
 						- Strong password policy
 						- Server – LAMP stack
 						- Require SSH keys
+						- Take & <strong>verify</strong> your backups
+							 - <a href="https://docs.acquia.com/articles/scrubbing-drupal-database-environment">Sanitize backups</a> for sharing
 						- [Roles and permissions](https://drupal.org/node/120614)
 						- Keep your site settings secure
 							- Permissions
@@ -72,27 +87,15 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						## Drupal 7
-
-						- Stronger password hashing / salt
-						- Login flood control
-							- prevents brute-force credential guessing
-						- Protected cron
-							- prevents Denial of Service attacks
-						- Update manager
-							- Update module from the web UI
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
 						## Modules enhancing security
 
 						- [Secure Login](https://drupal.org/project/securelogin)
-						- [Password policy](https://drupal.org/project/password_policy)
 						- [Paranoia](https://drupal.org/project/paranoia)
-						- [Hacked!](https://drupal.org/project/hacked)
+						- [Security Review](https://drupal.org/project/security_review)
 						- [Permissions Lock](https://drupal.org/project/permissions_lock)
+						- [Two Factor Authentication](https://drupal.org/project/tfa)
+						- [Hacked!](https://drupal.org/project/hacked)
+						- [Password policy](https://drupal.org/project/password_policy)
 					</script>
 				</section>
 
@@ -143,21 +146,129 @@
 					</a>
 				</section>
 
+				<section>
+					<h2>Most common issues all time</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td>XSS</td>
+							<td>373</td>
+						</tr>
+						<tr>
+							<td>Access bypass</td>
+							<td>151</td>
+						</tr>
+						<tr>
+							<td>CSRF</td>
+							<td>88</td>
+						</tr>
+						<tr>
+							<td>SQLi</td>
+							<td>41</td>
+						</tr>
+						<tr>
+							<td>Arbitrary code execution</td>
+							<td>27</td>
+						</tr>
+						<tr>
+							<td>Other</td>
+							<td>77</td>
+						</tr>
+						</tbody>
+					</table>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
-						## Developers & site maintainers
-
-						- Follow Drupal APIs and best practices
-						- Take & <strong>verify</strong> your backups
-						- <a href="https://docs.acquia.com/articles/scrubbing-drupal-database-environment">Sanitize backups</a> for sharing
+						## What are the most common contrib issues?
+						  <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types_all_time.png" alt="Vulnerabilities by type all time" />
 					</script>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						## What are the most common issues?
+						  <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types.png" alt="Vulnerabilities by type" />
+					</script>
+				</section>
+
+					<section>
+					<section data-markdown>
+						<script type="text/template">
+							## What is XSS?
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Testing for XSS
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Fixing XSS?
+						</script>
+					</section>
+					<section>
+						<h2>Precautions against XSS</h2>
+						<a href="http://drupalscout.com/knowledge-base/drupal-text-filtering-cheat-sheet-drupal-6" target="_blank">
+							<img height="500"  src="assets/filtering_text.png" alt="Filtering text" />
+						</a>
+					</section>
+				</section>
+
 				<section>
-					<h2>Precautions against XSS</h2>
-					<a href="http://drupalscout.com/knowledge-base/drupal-text-filtering-cheat-sheet-drupal-6" target="_blank">
-						<img height="500"  src="assets/filtering_text.png" alt="Filtering text" />
-					</a>
+					<section data-markdown>
+						<script type="text/template">
+							## What is Access Bypass?
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Testing for Access Bypass
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Fixing Access Bypass?
+						</script>
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							## What is CSRF?
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Testing for CSRF
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Fixing CSRF?
+						</script>
+					</section>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 7
+
+						- Stronger password hashing / salt
+						- Login flood control
+							- prevents brute-force credential guessing
+						- Protected cron
+							- prevents Denial of Service attacks
+						- Update manager
+							- Update module from the web UI
+					</script>
 				</section>
 
 				<section data-markdown>
@@ -194,7 +305,8 @@
 							<li>DGD7 chapter 6</li>
 							<li><a href="http://drupal.org/security">http://drupal.org/security</a></li>
 							<li><a href="http://www.drupalscout.com/">http://www.drupalscout.com/</a></li>
-							<li><a href="http://groups.drupal.org/best-practices-drupal-security">http://groups.drupal.org/best-practices-drupal-security</a></li>
+							<li><a href="http://www.drupalsecurityreport.org">http://www.drupalsecurityreport.org</a></li>
+							<li><a href="http://groups.drupal.org/security">http://groups.drupal.org/security</a></li>
 						</ul>
 					</div>
 				</section>
@@ -601,8 +713,8 @@ function linkify( selector ) {
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+				theme: Reveal.getQueryHash().theme || 'night', // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
 				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
