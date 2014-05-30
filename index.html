@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Securing Your Drupal Site: advice for site builders and coders</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -43,12 +43,208 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>HTML Presentations Made Easy</h3>
+					<h1>Securing Your Drupal Site</h1>
+					<h3>Advice for site builders and coders</h3>
 					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
+						<small>Presented by <ul>
+							<li><a href="https://drupal.org/u/greggles">Greg Knaddison</a> / <a href="http://twitter.com/greggles">@greggles</a></li>
+							<li><a href="https://drupal.org/u/greggles">Stéphane Corlosquet</a> / <a href="http://twitter.com/scorlosquet">@scorlosquet</a></li>
+						</small>
 					</p>
 				</section>
+
+
+				<section data-markdown>
+					<script type="text/template">
+						## General tips
+
+						- Use HTTPS, SSH, SFTP
+						- Strong password policy
+						- Server – LAMP stack
+						- Require SSH keys
+						- [Roles and permissions](https://drupal.org/node/120614)
+						- Keep your site settings secure
+							- Permissions
+							- Text formats
+							- PHP filter
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 7
+
+						- Stronger password hashing / salt
+						- Login flood control
+							- prevents brute-force credential guessing
+						- Protected cron
+							- prevents Denial of Service attacks
+						- Update manager
+							- Update module from the web UI
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Modules enhancing security
+
+						- [Secure Login](https://drupal.org/project/securelogin)
+						- [Password policy](https://drupal.org/project/password_policy)
+						- [Paranoia](https://drupal.org/project/paranoia)
+						- [Hacked!](https://drupal.org/project/hacked)
+						- [Permissions Lock](https://drupal.org/project/permissions_lock)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal specific hosting
+
+						- Can your hosting provider help you improve your security process?
+							- [Pantheon](https://www.getpantheon.com/)
+							- [Acquia Cloud](http://www.acquia.com/products-services/acquia-cloud) & [Insight](https://insight.acquia.com)
+						- Tuned for Drupal security (and performance)
+							- Code, DB, uploaded files, config
+							- Managed security updates
+								- Remote administration (Acquia)
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Security process
+
+						- Ongoing maintenance
+						- Cost
+						- Managed hosting
+						- Drupal.org packaging infrastructure
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Security process
+
+						- [Drupal Security Team](https://drupal.org/security-team)
+							- Keep Drupal code secure in core and contrib
+							- Educate the community on security best practices
+								- Developers
+								- Site builders
+								- Site administrators and users
+								- Decision makers
+							- [Security Advisory](https://drupal.org/security) for every security release
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Developers & site maintainers
+
+						- Follow Drupal APIs and best practices
+						- Take & <strong>verify</strong> your backups
+						- <a href="https://docs.acquia.com/articles/scrubbing-drupal-database-environment">Sanitize backups</a> for sharing
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 8
+
+						- Twig as templating language
+							- Automatically sanitizes strings on output
+							- No PHP in templates
+						- WYSIWYG in core
+							- Streamlined filter mechanism (server and client side)
+							- No more full HTML as last resort
+						- Local image input filter
+							- Only allow images from same site
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						##
+
+						- []()
+						- []()
+					</script>
+				</section>
+
+
+
+				<!-- Original slides, to be removed. -->
 
 				<section>
 					<h2>Heads Up</h2>
