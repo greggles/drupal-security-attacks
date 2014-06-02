@@ -274,8 +274,8 @@
 					<section data-markdown>
 						<script type="text/template">
 							## Testing for XSS
-							- <script>alert('title');</script>
-							- <img src="a" onerror="alert('title');">
+							- &lt;script&gt;alert('title');&lt;/script&gt;
+							- &lt;img src="a" onerror="alert('title');"&gt;
 							- Catches 90%
 						</script>
 					</section>
