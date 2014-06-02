@@ -257,6 +257,14 @@
 						</script>
 					</section>
 				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 7
+						## Security improvements
+					</script>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## Drupal 7
@@ -274,15 +282,74 @@
 				<section data-markdown>
 					<script type="text/template">
 						## Drupal 8
+						## Security improvements
+					</script>
+				</section>
 
-						- Twig as templating language
-							- Automatically sanitizes strings on output
-							- No PHP in templates
-						- WYSIWYG in core
-							- Streamlined filter mechanism (server and client side)
-							- No more full HTML as last resort
-						- Local image input filter
-							- Only allow images from same site
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 8: Twig
+
+						Automatically sanitizes strings on output<sup>*</sup>
+
+```
+  # Drupal 7
+  if (isset($variables['link_path'])) {
+    $output = l($variables['name'] . $variables['extra'], $variables['link_path'], $variables['link_options']);
+  }
+  else {
+    $output = '<span' . new Attribute($variables['attributes']) . '>' . $variables['name'] . $variables['extra'] . '</span>';
+  }
+  return $output;
+
+```
+```
+  # Drupal 8
+  {% if link_path -%}
+    <a{{ attributes }}>{{ name }}{{ extra }}</a>
+  {%- else -%}
+    <span{{ attributes }}>{{ name }}{{ extra }}</span>
+  {%- endif -%}
+```
+
+						<small style="float: right; margin-top: 4em;"><sup>*</sup> [https://drupal.org/node/1825952](https://drupal.org/node/1825952)</small>
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 8: Twig
+
+						No PHP in templates
+
+```
+{% if link_path -%}
+  <a{{ attributes }}>{{ name }}{{ extra }}</a>
+{%- else -%}
+  <span{{ attributes }}>{{ name }}{{ extra }}</span>
+{%- endif -%}
+```
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 8: WYSIWYG in core
+						- Streamlined filter mechanism (server and client side)
+						- No more full HTML as last resort
+
+						![alt](assets/ckeditor_config.png)
+						![alt](assets/allowed_html_tags.png)
+					</script>
+
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 8: Local image filter
+
+						Only allow images from same site
+						![alt](assets/local_images.png)
 					</script>
 				</section>
 
@@ -326,24 +393,6 @@
 							<li><a href="https://austin2014.drupal.org/sprints">austin2014.drupal.org/sprints</a></li>
 						</ul>
 					</div>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						##
-
-						- []()
-						- []()
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						##
-
-						- []()
-						- []()
-					</script>
 				</section>
 
 				<section data-markdown>
@@ -674,15 +723,6 @@ function linkify( selector ) {
 					<a class="image" href="http://lab.hakim.se/meny/" target="_blank">
 						<img width="320" height="299" src="http://s3.amazonaws.com/hakim-static/portfolio/images/meny.png" alt="Meny">
 					</a>
-				</section>
-
-				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, below is an example that's been uploaded to SlideShare.</p>
-					<iframe id="slideshare" src="http://www.slideshare.net/slideshow/embed_code/13872948" width="455" height="356" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen> </iframe>
-					<script>
-						document.getElementById('slideshare').attributeName = 'allowfullscreen';
-					</script>
 				</section>
 
 				<section>
