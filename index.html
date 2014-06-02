@@ -56,16 +56,22 @@
 							<small>These slides: http://scor.github.io/drupal-security-2014/</small>
 						</p>
 					</section>
-					<section data-markdown>
-						<script type="text/template">
-							## [@greggles](https://twitter.com/greggles)
-
-							- Contributed to Drupal for 8+ years
-							- Pretty interested in security
-							- Wrote [Cracking Drupal](http://crackingdrupal.com)
-							- [CARD.com](https://www.card.com) - mobile alternative to a bank - all Drupal
-							- [CARD.com/careers](https://www.card.com/careers)
-						</script>
+					<section>
+						<h2><a href="https://twitter.com/greggles">@greggles Knaddison</a></h2>
+						<div>
+							<div style="float: right; width:250px;">
+								<a href="https://www.card.com/" target="_blank">
+									<img src="assets/cardLogo-vertical-rgb.png" alt="CARD.com logo" />
+								</a>
+							</div>
+							<ul style="float:left">
+								<li>Contributed to Drupal for 8+ years</li>
+								<li>Pretty interested in security</li>
+								<li>Wrote <a href="http://crackingdrupal.com">Cracking Drupal</a></li>
+								<li><a href="https://www.card.com">CARD.com</a> - mobile alternative to a bank</li>
+								<li>							<a href="CARD.com/careers">https://www.card.com/careers</a></li>
+							</ul>
+						</div>
 					</section>
 					<section>
 						<h2>Stéphane "scor" Corlosquet</h2>
@@ -85,8 +91,6 @@
 						</div>
 					</section>
 				</section>
-
-
 				<section data-markdown>
 					<script type="text/template">
 						## Lots of things to cover
@@ -122,18 +126,6 @@
 
 				<section data-markdown>
 					<script type="text/template">
-						## PCI, HIPAA, SCADA, XYZ, PDQ
-
-						- Be aware of your regulations
-						- [Drupal PCI Compliance Report](http://drupalpcicompliance.org/)
-						- Anyone work in HIPAA environment?
-						- Anyone work in SCADA?
-						- FEDRAMP/FISMA C&A?
-					</script>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
 						## Modules enhancing security
 
 						- [Secure Login](https://drupal.org/project/securelogin)
@@ -163,15 +155,25 @@
 
 				<section data-markdown>
 					<script type="text/template">
+						## PCI, HIPAA, SCADA, XYZ, PDQ
+
+						- Be aware of your regulations
+						- [Drupal PCI Compliance Report](http://drupalpcicompliance.org/)
+						- Anyone work in HIPAA environment?
+						- FedRAMP/FISMA Certification & Accreditation (C&A)?
+						- Anyone work with Drupal in SCADA?
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
 						## Security process
 
 						- Ongoing maintenance
-						- Cost
+						- Budget for security
 						- Managed hosting
 						- Drupal.org packaging infrastructure
 					</script>
 				</section>
-
 				<section data-markdown>
 					<script type="text/template">
 						## Security process
@@ -192,44 +194,6 @@
 					<a href="https://www.acquia.com/blog/keeping-drupal-secure" target="_blank">
 						<img height="500"  src="assets/Drupal-security-release_rgb-cc-by-nd.jpg" alt="Keeping Drupal secure infographic" />
 					</a>
-				</section>
-
-				<section>
-					<h2>Most common issues all time</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Type</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-						<tr>
-							<td>XSS</td>
-							<td>373</td>
-						</tr>
-						<tr>
-							<td>Access bypass</td>
-							<td>151</td>
-						</tr>
-						<tr>
-							<td>CSRF</td>
-							<td>88</td>
-						</tr>
-						<tr>
-							<td>SQLi</td>
-							<td>41</td>
-						</tr>
-						<tr>
-							<td>Arbitrary code execution</td>
-							<td>27</td>
-						</tr>
-						<tr>
-							<td>Other</td>
-							<td>77</td>
-						</tr>
-						</tbody>
-					</table>
 				</section>
 
 				<section data-markdown>
@@ -292,7 +256,7 @@
 							- That permissions/access should prevent
 						</script>
 					</section>
-					<section>
+					<section data-markdown>
 						<script type="text/template">
 							### Where do we enforce it?
 							- Menu 'access callback'
@@ -463,7 +427,7 @@
 						</div>
 						<ul style="float: left;">
 							<li>DGD7 chapter 6</li>
-							<li><a href="http://drupal.org/security">http://drupal.org/security</a></li>
+							<li><a href="http://drupal.org/security-team">http://drupal.org/security-team</a></li>
 							<li><a href="http://www.drupalscout.com/">http://www.drupalscout.com/</a></li>
 							<li><a href="http://www.drupalsecurityreport.org">http://www.drupalsecurityreport.org</a></li>
 							<li><a href="http://groups.drupal.org/security">http://groups.drupal.org/security</a></li>
