@@ -43,25 +43,53 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Securing Your Drupal Site</h1>
-					<h3>Advice for site builders and coders</h3>
-					<p>
-						<small>Presented by <ul>
-							<li><a href="https://drupal.org/u/greggles">Greg Knaddison</a> / <a href="http://twitter.com/greggles">@greggles</a></li>
-							<li><a href="https://drupal.org/u/greggles">Stéphane Corlosquet</a> / <a href="http://twitter.com/scorlosquet">@scorlosquet</a></li>
-						</small>
-					</p>
+					<section>
+						<h1>Securing Your Drupal Site</h1>
+						<h3>Advice for site builders and coders</h3>
+						<p>
+							<small>Presented by <ul>
+								<li><a href="https://drupal.org/u/greggles">Greg Knaddison</a> / <a href="http://twitter.com/greggles">@greggles</a></li>
+								<li><a href="https://drupal.org/u/greggles">Stéphane Corlosquet</a> / <a href="http://twitter.com/scorlosquet">@scorlosquet</a></li>
+							</small>
+						</p>
+						<p>
+							<small>These slides: http://scor.github.io/drupal-security-2014/</small>
+						</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## [@greggles](https://twitter.com/greggles)
+
+							- Contributed to Drupal for 8+ years
+							- Pretty interested in security
+							- Wrote [Cracking Drupal](http://crackingdrupal.com)
+							- [CARD.com](https://www.card.com) - mobile alternative to a bank - all Drupal
+							- [CARD.com/careers](https://www.card.com/careers)
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							## Stéphane Corlosquet
+
+							- Drupal Developer for a long time
+							- Pretty interested in security
+							- Wrote DGD7
+							- [Acquia](https://www.acquia.com)
+							- Also hiring
+
+						</script>
+					</section>
 				</section>
 
 				<section data-markdown>
 					<script type="text/template">
 						## Lots of things to cover
 
-						- Drupal Configuration
-						- Code
 						- Server environment
 						- Server config
 						- Personal practices
+						- Drupal Configuration
+						- Code
 
 						*cover them all a little*
 					</script>
@@ -81,7 +109,20 @@
 						- Keep your site settings secure
 							- Permissions
 							- Text formats
-							- PHP filter
+							- PHP module
+							- PHP in other modules
+					</script>
+				</section>
+
+				<section data-markdown>
+					<script type="text/template">
+						## PCI, HIPAA, SCADA, XYZ, PDQ
+
+						- Be aware of your regulations
+						- [Drupal PCI Compliance Report](http://drupalpcicompliance.org/)
+						- Anyone work in HIPAA environment?
+						- Anyone work in SCADA?
+						- FEDRAMP/FISMA C&A?
 					</script>
 				</section>
 
@@ -104,7 +145,7 @@
 						## Drupal specific hosting
 
 						- Can your hosting provider help you improve your security process?
-							- [Pantheon](https://www.getpantheon.com/)
+							- [Drupal.org/hosts](https://www.drupal.org/hosts)
 							- [Acquia Cloud](http://www.acquia.com/products-services/acquia-cloud) & [Insight](https://insight.acquia.com)
 						- Tuned for Drupal security (and performance)
 							- Code, DB, uploaded files, config
@@ -202,16 +243,30 @@
 					<section data-markdown>
 						<script type="text/template">
 							## What is XSS?
+							- Cross Site Scripting
+							- Code in the browser
+							- Making requests
+							- Parsing responses
+							- Javascript, Flash, Java, etc.
+
+
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## Testing for XSS
+							- <script>alert('title');</script>
+							- <img src="a" onerror="alert('title');">
+							- Catches 90%
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## Fixing XSS?
+							- Filter text
+							- On output to browser
+							- As late as reasonable
+							- Some API filters where reasonable
 						</script>
 					</section>
 					<section>
@@ -226,16 +281,39 @@
 					<section data-markdown>
 						<script type="text/template">
 							## What is Access Bypass?
+							- User can see or do something
+							- That permissions/access should prevent
+						</script>
+					</section>
+					<section>
+						<script type="text/template">
+							### Where do we enforce it?
+							- Menu 'access callback'
+							- <code>if(user_access('see something'));</code>
+							- Node access system
+							- Entity access
+							- Field access
+							- Services & Ajax apis?
+							- In templates
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## Testing for Access Bypass
+							- Visit node/nid etc.
+							- Visit anything/%node
+							- Use behat
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## Fixing Access Bypass?
+							- <code>user_access</code> for permissions
+							- <code>node_access</code>
+							- <code>entity_access</code>
+							- <code>$query->addTag('node_access');</code>
+							- menu definitions
+							- write automated tests
 						</script>
 					</section>
 				</section>
@@ -244,16 +322,24 @@
 					<section data-markdown>
 						<script type="text/template">
 							## What is CSRF?
+							- path
+							- does not confirm intent
+
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## Testing for CSRF
+							- $_GET, $_POST, no use of drupal_get_token
+							- "verb" menu callbacks without token
 						</script>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
 							## Fixing CSRF?
+							- Use FAPI
+							- Send and validate tokens
+							- [Drupalscout.com csrf](http://www.drupalscout.com/tags/csrf)
 						</script>
 					</section>
 				</section>
@@ -764,7 +850,7 @@ function linkify( selector ) {
 				history: true,
 				center: true,
 
-				theme: Reveal.getQueryHash().theme || 'night', // available themes are in /css/theme
+				theme: Reveal.getQueryHash().theme || 'sky', // available themes are in /css/theme
 				transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
 
 				// Parallax scrolling
