@@ -431,6 +431,25 @@
 					</script>
 				</section>
 
+				<section data-markdown>
+					<script type="text/template">
+						## Drupal 8: Built-in CSRF tokens
+
+						CSRF tokens built in the routing system
+```
+# views_ui.routing.yml
+views_ui.enable:
+  path: '/admin/structure/views/view/{view}/enable'
+  defaults:
+    _controller: '\Drupal\views_ui\Controller\ViewsUIController::ajaxOperation'
+    op: enable
+  requirements:
+    _entity_access: view.enable
+    _csrf_token: 'TRUE'
+```
+					</script>
+				</section>
+
 				<section>
 					<h2>Book on Security in Drupal</h2>
 					<a href="http://crackingdrupal.com/" target="_blank">
