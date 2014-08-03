@@ -330,12 +330,21 @@
 				<section data-markdown>
 					<script type="text/template">
 						## SQL Injection Demo
-						vulnerable/show-me-the-data/s
-						vulnerable/show-me-the-data/' or 1 = 1 or name = '
-						vulnerable/show-me-the-data/' UNION SELECT uid, pass, init FROM users where 1=1 OR 1 ='
-						vulnerable/show-me-the-data/';update users set mail = 'greg evilguy@card.com';
+						- vulnerable/show-me-the-data/s
+						- vulnerable/show-me-the-data/' or 1 = 1 or name = '
+						- vulnerable/show-me-the-data/' UNION SELECT uid, pass, init FROM users where 1=1 OR 1 ='
+						- vulnerable/show-me-the-data/';update users set mail = 'greg evilguy@card.com';
 					</script>
 				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Fixing SQL Injection
+						- Use D7 database api
+						- If you use db_query, use :placeholders
+						- Filter/canonicalize paramters for ->where or ->sort
+					</script>
+				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## Drupal 8
