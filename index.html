@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Securing Your Drupal Site: advice for site builders and coders</title>
+		<title>Let's break in to Drupal</title>
 
-		<meta name="description" content="Broad introduction to Drupal Security">
+		<meta name="description" content="Specific examples of exploiting Drupal vulnerabilities">
 		<meta name="author" content="Greg Knaddison">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -43,15 +43,15 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Securing Your Drupal Site</h1>
-					<h3>Advice for site builders and coders</h3>
+					<h1>Let's break in to Drupal</h1>
+					<h3>Because breaking is more fun than building</h3>
 					<p>
 						<small>Presented by <ul>
 							<li><a href="https://drupal.org/u/greggles">Greg Knaddison</a> / <a href="http://twitter.com/greggles">@greggles</a></li>
 						</small>
 					</p>
 					<p>
-						<small>These slides: <a href="http://scor.github.io/drupal-security-2014/">http://cardcorp.github.io/drupal-security-intro/</a></small>
+						<small>These slides: <a href="http://cardcorp.github.io/drupal-security-2014/">http://cardcorp.github.io/drupal-security-attacks/</a></small>
 					</p>
 				</section>
 				<section>
@@ -73,41 +73,23 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						## Lots of things to cover
+						## Expert
 
-						- Server environment
-						- Server config
-						- Personal practices
-						- Drupal Configuration
-						- Code
+						`An expert is a person who has made all the mistakes which can be made, in a narrow field.`
 
-						*we will cover them all a little*
+						*Niels Bohr*
 					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						## General tips
+						## Security experts
 
-						- Use HTTPS, SSH, SFTP
-						- Strong password policy
-						- Server – LAMP stack
-						- Require SSH keys
-						- Take & <strong>verify</strong> your backups
-							 - <a href="https://docs.acquia.com/articles/scrubbing-drupal-database-environment">Sanitize backups</a> for sharing
+						`Know the mechanics to exploit vulnerabilities.`
+
 					</script>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## General tips
 
-						- [Roles and permissions](https://drupal.org/node/120614)
-						- Keep your site settings secure
-							- Permissions
-							- Text formats
-							- PHP module
-							- PHP in other modules
-					</script>
-				</section>
+
 				<section data-markdown>
 					<script type="text/template">
 						## Modules enhancing security
@@ -132,27 +114,6 @@
 							- Code, DB, uploaded files, config
 							- Managed security updates
 								- Remote administration (Acquia)
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## PCI, HIPAA, SCADA, XYZ, PDQ
-
-						- Be aware of your regulations
-						- [Drupal PCI Compliance Report](http://drupalpcicompliance.org/)
-						- Anyone work in HIPAA environment?
-						- FedRAMP/FISMA Certification & Accreditation (C&A)?
-						- Anyone work with Drupal in SCADA?
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## Security process
-
-						- Ongoing maintenance
-						- Budget for security
-						- Managed hosting
-						- Drupal.org packaging infrastructure
 					</script>
 				</section>
 				<section data-markdown>
@@ -184,6 +145,17 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
+						## Security is a process
+
+						- Ongoing maintenance
+						- Budget for security
+						- Managed hosting
+						- Drupal.org packaging infrastructure
+						- Testing your own code and configuration
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
 						## What are the most common contrib issues?
 						  <img height="500"  src="assets/Drupal_Security_-_SA_Analysis_vuln_types_all_time.png" alt="Vulnerabilities by type all time" />
 					</script>
@@ -206,13 +178,20 @@
 
 					</script>
 				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## Testing for XSS
-						- &lt;script&gt;alert('title');&lt;/script&gt;
-						- &lt;img src="a" onerror="alert('title');"&gt;
-						- Catches 90%
-					</script>
+				<section >
+					<h2>Testing for XSS</h2>
+					<ul>
+					<li>&lt;script&gt;alert('title');&lt;/script&gt;</li>
+					<li>&lt;img src="a" onerror="alert('title');"&gt;</li>
+					<li>Catches 90%</li>
+					</ul>
+					<br>
+					<img height="200"  src="assets/puppy_licking_ball.gif" alt="Puppy knawing at tennis ball" />
+				</section>
+				<section>
+					<h2>XSS Demo</h2>
+						<img height="500"  src="assets/make_it_stop.gif" alt="Make it stop" />
+						<a href="https://gist.github.com/greggles/1368537">Drupal 7 Password Changer.js</a>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
@@ -253,7 +232,13 @@
 						## Testing for Access Bypass
 						- Visit node/nid etc.
 						- Visit anything/%node
-						- Use behat
+						- Use behat (see my session at 11:30 in 101)
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+						## Basic Access Bypass Demo
+						blah. blah. blah.
 					</script>
 				</section>
 				<section data-markdown>
@@ -284,6 +269,18 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
+						## Basic CSRF demo
+						&lt;img src="/user/logout"&gt;
+					</script>
+				</section>				
+				<section data-markdown>
+					<script type="text/template">
+						## Extreme CSRF demo
+						The Drupal form API has built-in cross-site request forgery (CSRF) validation, and also allows any module to perform its own validation on the form. In certain common cases, form validation functions may execute unsafe operations. Given that the CSRF protection is an especially important validation, the Drupal core form API has been changed in this release so that it now skips subsequent validation if the CSRF validation fails.
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
 						## Fixing CSRF?
 						- Use FAPI
 						- Send and validate tokens
@@ -292,35 +289,31 @@
 				</section>
 				<section data-markdown>
 					<script type="text/template">
-						## XSS & Access bypass Demo
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## Drupal 7
-						## Security improvements
-					</script>
-				</section>
-				<section data-markdown>
-					<script type="text/template">
-						## Drupal 7
+						## What is SQL Injection?
+						- insufficient database filtering
+						- executing SQL of the attacker
+						- change information
+						- gain information
 
-						- Stronger password hashing / salt
-						- Login flood control
-							- prevents brute-force credential guessing
-						- Protected cron
-							- prevents Denial of Service attacks
-						- Update manager
-							- Update module from the web UI
 					</script>
 				</section>
-				<section>
-					<h2>Drupal 7 Update Manager</h2>
-					<img src="assets/D7_Available_updates_list.png">
+				<section data-markdown>
+					<script type="text/template">
+						## Testing for SQL Injection
+						- look at queries in code 
+						- "...WHERE name LIKE '%%$user_search%%'");
+						- coder.module (see Ben's session at 2:00pm in 101)
+						- username' AND 1 = 1
+					</script>
 				</section>
-				<section>
-					<h2>Drupal 7 Update Manager Notifications</h2>
-					<img src="assets/D7_Available_updates_notifications.png">
+				<section data-markdown>
+					<script type="text/template">
+						## SQL Injection Demo
+						vulnerable/show-me-the-data/s
+						vulnerable/show-me-the-data/' or 1 = 1 or name = '
+						vulnerable/show-me-the-data/' UNION SELECT uid, pass, init FROM users where 1=1 OR 1 ='
+						vulnerable/show-me-the-data/';update users set mail = 'greg evilguy@card.com';
+					</script>
 				</section>
 				<section data-markdown>
 					<script type="text/template">
