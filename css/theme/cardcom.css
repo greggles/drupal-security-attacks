@@ -27,14 +27,14 @@ iframe {
  * GLOBAL STYLES
  *********************************************/
 body {
-  background: #25abc3;
-  background: -moz-radial-gradient(center, circle cover, #2abdd7 0%, #25abc3 100%);
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #2abdd7), color-stop(100%, #25abc3));
-  background: -webkit-radial-gradient(center, circle cover, #2abdd7 0%, #25abc3 100%);
-  background: -o-radial-gradient(center, circle cover, #2abdd7 0%, #25abc3 100%);
-  background: -ms-radial-gradient(center, circle cover, #2abdd7 0%, #25abc3 100%);
-  background: radial-gradient(center, circle cover, #2abdd7 0%, #25abc3 100%);
-  background-color: #2abdd7; }
+  background: #197181;
+  background: -moz-radial-gradient(center, circle cover, #1d8496 0%, #197181 100%);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #1d8496), color-stop(100%, #197181));
+  background: -webkit-radial-gradient(center, circle cover, #1d8496 0%, #197181 100%);
+  background: -o-radial-gradient(center, circle cover, #1d8496 0%, #197181 100%);
+  background: -ms-radial-gradient(center, circle cover, #1d8496 0%, #197181 100%);
+  background: radial-gradient(center, circle cover, #1d8496 0%, #197181 100%);
+  background-color: #1d8496; }
 
 .reveal {
   font-family: "Open Sans", sans-serif;
@@ -73,7 +73,6 @@ body {
  *********************************************/
 .reveal a:not(.image) {
   color: #e3e3e3;
-  text-decoration: none;
   -webkit-transition: color .15s ease;
   -moz-transition: color .15s ease;
   -ms-transition: color .15s ease;
@@ -170,9 +169,6 @@ body {
   -moz-box-shadow: none;
   -webkit-box-shadow: none;
   box-shadow: none; }
-
-.reveal a:not(.image) {
-  color: #7ef298; }
 
 .reveal a:not(.image):hover, .reveal a:not(.image):active {
   color: #c3f9cf; }
